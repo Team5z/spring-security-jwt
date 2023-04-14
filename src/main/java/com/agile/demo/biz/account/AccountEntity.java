@@ -21,9 +21,9 @@ import javax.persistence.Table;
 public class AccountEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, length = 25, unique = true)
-    private long na_seq;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="na_seq", nullable = false, length = 25, unique = true)
+    private Long na_seq;
 
     @Column(nullable = false, updatable = false, length = 50)
     private String name;
@@ -43,7 +43,26 @@ public class AccountEntity {
     private LocalDate regDate;
 
 
-    // @OneToMany(cascade = CascadeType.MERGE)
+    @Enumerated(EnumType.STRING)
+    @Column(name="user1")
+    private Role role;
+
+    @AllArgsConstructor
+    @Getter
+    public enum Role {
+        ADMIN("ROLE_ADMIN");
+        private String value;
+    }
+//    @Enumerated(EnumType.STRING)
+//    @Column(name="user1")
+//    private Role role;
+//
+//    @AllArgsConstructor
+//    @Getter
+//    public enum Role {
+//        ADMIN("ROLE_ADMIN");
+//        private String value;
+//    }
 
 }
 

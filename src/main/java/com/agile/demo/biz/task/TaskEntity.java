@@ -3,10 +3,13 @@ package com.agile.demo.biz.task;
 import com.agile.demo.biz.account.AccountEntity;
 import com.agile.demo.biz.backlog.BacklogEntity;
 import com.agile.demo.biz.project.ProjectEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,6 +22,8 @@ import java.time.LocalDateTime;
 @Builder
 public class TaskEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="nt_seq", nullable = false, length = 25, unique = true)
     private Long nt_seq;
 
     @Column(nullable = false, updatable = true, length = 100)
@@ -33,11 +38,15 @@ public class TaskEntity {
     @Column(nullable = true, updatable = true)
     private Long Assign;
 
-    @Column
+    @Column(name = "createDate", nullable = true, insertable = true, updatable = false)
+    @CreatedDate
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime createDate;
 
-    @Column
-    private LocalDateTime updataData;
+    @Column(name = "updateData", nullable = true, insertable = true, updatable = true)
+    @LastModifiedDate
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
+    private LocalDateTime updateData;
 
     @Column(nullable = false, updatable = true)
     private Long Presenter;
