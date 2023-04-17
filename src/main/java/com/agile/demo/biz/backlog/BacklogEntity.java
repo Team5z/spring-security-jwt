@@ -21,16 +21,16 @@ public class BacklogEntity {
     private Long nb_seq;
 
     @Column(nullable = false, updatable = true, length = 100)
-    private String Title;
+    private String title;
 
     @Column(nullable = true, updatable = true)
-    private int Story_Progress;
+    private int story_progress;
 
     @Column(nullable = true, updatable = true, length = 255)
-    private String Description;
+    private String description;
 
     @Column(nullable = true, updatable = true)
-    private Long Assign;
+    private Long assign;
 
     @ManyToOne
     @JoinColumn(name = "np_seq", insertable = false, updatable = false)

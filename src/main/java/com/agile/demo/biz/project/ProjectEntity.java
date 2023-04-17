@@ -25,10 +25,10 @@ public class ProjectEntity {
     private long np_seq;
 
     @Column(nullable = false, updatable = true, length = 100)
-    private String Project_Title;
+    private String project_title;
 
     @Column(nullable = true, updatable = true)
-    private String Project_Assign;
+    private String project_assign;
 
 
     @OneToMany(cascade = CascadeType.REMOVE)

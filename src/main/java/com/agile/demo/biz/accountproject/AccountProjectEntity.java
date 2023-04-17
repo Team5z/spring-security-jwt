@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "NAccountProject")
+@Table(name = "NAccount_project")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

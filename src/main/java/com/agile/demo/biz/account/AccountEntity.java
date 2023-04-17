@@ -40,7 +40,7 @@ public class AccountEntity {
     @CreatedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
     @Column(nullable = false)
-    private LocalDate regDate;
+    private LocalDate reg_date;
 
 
     @Enumerated(EnumType.STRING)

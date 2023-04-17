@@ -27,29 +27,29 @@ public class TaskEntity {
     private Long nt_seq;
 
     @Column(nullable = false, updatable = true, length = 100)
-    private String Title;
+    private String title;
 
     @Column(nullable = true, updatable = true)
-    private int Story_Progress;
+    private int story_progress;
 
     @Column(nullable = true, updatable = true, length = 255)
-    private String Description;
+    private String description;
 
     @Column(nullable = true, updatable = true)
-    private Long Assign;
+    private Long assign;
 
     @Column(name = "createDate", nullable = true, insertable = true, updatable = false)
     @CreatedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
-    private LocalDateTime createDate;
+    private LocalDateTime create_date;
 
     @Column(name = "updateData", nullable = true, insertable = true, updatable = true)
     @LastModifiedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
-    private LocalDateTime updateData;
+    private LocalDateTime update_data;
 
     @Column(nullable = false, updatable = true)
-    private Long Presenter;
+    private Long presenter;
 
     @Column(nullable = false, updatable = true)
     private Long manager;
